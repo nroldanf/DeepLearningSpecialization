@@ -66,5 +66,43 @@ For N metrics:
 - 1 optimizing metric
 - N-1 Satisficing metric.
 
-3. __Choosing train, dev, and test sets distribution__
+3. __Choosing train, dev, and test sets__
+
+Set up datasets dev (hold-out cross validation set) and test for efficiency. 
+
+Find a way so both sets come from the same distribution. 
+
+You might spend months iterating to do well on the dev set, only to get surprised how bad you are performing on test set, all this because you are using different distributions.
+
+Randomly shuffle the data all mixed together and get your dev and test sets from all the data.
+
+__Guideline__: Choose a dev and test set to reflect data you expect to get in the future and consider important to do well on. And both sets, come from the same distribution.
+
+4. __Choosing the size of dev and test sets__
+
+This depends on the full dataset size. If dataset if too large (millions), the percentage is lower (1-5% should be enough for dev and test sets).
+
+Set you test set to be big enough to give high confidence in the overall performance of your system. 
+
+Recommended to have a both, dev and test sets or have a dev set big enough to be sure you are not overfiiting.
+
+5. __When to change evaluation metrics?__
+
+Misprediction: Wrongly classifying, even if the metric is better for another algorithm. 
+
+Possible solutions: Add weighting parameters to mitigate misclassification.
+
+You can separate this changing problem into 2 steps:
+
+First: Define a new metric that better captures what is intended (place the target).
+
+Second: Worry about how to do well on this metric (how to shoot to the target).
+
+Even if you can define the perfect evaluation metric, choose a good one quicly and later change it at other time, so you can improve team iteration.
+
+## Comparing to Human-level performance
+
+
+
+
 
