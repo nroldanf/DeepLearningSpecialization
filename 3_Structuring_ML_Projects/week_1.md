@@ -102,7 +102,32 @@ Even if you can define the perfect evaluation metric, choose a good one quicly a
 
 ## Comparing to Human-level performance
 
+__Why human level performance?__
+
+Deep learning advances are working much better to the point that are competitive with human-level performance.
+
+As time progress, the performance comes near but never surpasses a theoretical threshold called "Bayes Optimal Error" think of best possible error. 
+
+There is no way of a function that maps x to y to surpasses this threshold, e.g. for speech recognition, some audio is so noisy that is practically impossible to tell what is being said.
+
+In general, human level performance is near Bayes optimal error thresh, so the advance after surpassing human-level performance is slow.
+
+So long as ML is worse than human, you can:
+
+- Get labeled data from humans.
+- Gain insight from manual error analysis: why did a person get this right?
+- Better analysis of bias variance.
 
 
+__Avoidable Bias__
 
+Human level performance can tell you how well you want your algorithm to do on training set.
+
+When you can find a huge gap between human-level performance and training error: __Focus on bias__
+
+When you can't find a huge gap between human-level performance and training error, __Focus on variance__, reducing the difference between the training error and the dev error.
+
+You can think of human-level error as a proxy for Bayes error.
+
+__Understanding Human-level performance__
 
