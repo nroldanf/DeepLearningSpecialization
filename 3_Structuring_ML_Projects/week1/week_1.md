@@ -131,3 +131,42 @@ You can think of human-level error as a proxy for Bayes error.
 
 __Understanding Human-level performance__
 
+You can see human-level performance as a proxy for Bayes error.
+
+Suppose medical image classification:
+- Typical human: 3% error
+- Typical doctor: 1% error
+- Experienced doctor: 0.7% error
+- Team of experienced doctors: 0.5% error.
+
+What is human-level error in this case?: The optimal error would be according of what do you want to achieve; to surpass single human or a groud of experienced ones.
+
+Compare between avoidable bias (gap between human-level performance and training error performance) and variance (gap between performance in dev and train sets) so you know which to choose as proxy. So you know, in which to focus, if bias (bigger models and more data) or variance (regularization tecniques) reduction tecniques.
+
+Instead of comparing error to 0%, compare to Bayes error (human-level performance), to try to understand how big our bias is.
+
+__Surpassing Human-level performance__
+
+When you surpass human-level performance, it's not clear on how you can get better.
+
+It's more easy to find cases of this on non-natural perception tasks (e.g. vision, hearing, understanding language, etc.).
+
+- Loan approvals
+- Logistics
+- Product recommendations
+
+But also, in natural perception tasks you can find examples, althought it was harder to surpass it.
+
+__Guidelines on how to improve you model performance__
+
+Two fundamental assumptions of supervised learning:
+
+1. You can fit the training set very well (not too bad avoidable bias)
+    - Bigger network
+    - Train longer or use better optimization algorithms
+    - NN architecture/hyperparameter search
+
+2. The training set performance generalizes pretty well to the dev/test set.
+    - Regularization (L2, Dropout, data augmentation)
+    - Getting more training data (generalizes better)
+    - NN architecture/hyperparameter search
