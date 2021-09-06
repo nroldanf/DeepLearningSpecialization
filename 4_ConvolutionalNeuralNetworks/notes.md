@@ -110,9 +110,32 @@ Number of parameters in a layer equal to:
 
 ((width * height * n_channels) + 1) * n_filters
 
-## Pooling
+## Pooling Layer
 
+NO PARAMETERS TO LEARN is just a fixed function.
 
+### Max Pooling
+
+Divide into regions and take the max over it.
+
+Hyperparameters in pooling are:
+
+- f: filter size (region size)
+- s: stride
+
+Preserving important detected features in the different regions/quadrants. If the feature is not present, the number resulting from applying the maxima still very small. But, this is not well known if is the underlying reason for max pooling to work very well with cnn.
+
+Usually, padding is not used with max pooling.
+
+__Output size:__
+
+Same applies as with convolutio operation.
+
+floor(((n + 2p - f) / s) + 1)
+
+## Average Pooling
+
+Instead of taking maxima, taking the average. It's not used as much as average pooling. Except in the case of very deep neural networks para comprimir la representación.
 
 ## Convolution Neural Network
 
