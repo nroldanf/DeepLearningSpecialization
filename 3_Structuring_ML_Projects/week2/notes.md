@@ -135,4 +135,16 @@ Sometimes, breaking the task into smaller ones that does not require too much da
 
 2. __Wheter to use end-to-end deep learning__
 
+Pros:
 
+- Let the data speak. Neural network will be able to capture important features rather than being forced to reflect human preconception.
+- Less hand designing of features
+
+Cons:
+
+- May need large amount of data, because you are learning a direct mapping from x to y.
+- Excludes potentially useful hand-designed components. This is not always recommended. This is particularly useful is you don't have a lot of data.
+
+Key questions:
+
+- Do you have sufficient data to learn a function of the complexity needed to map x to y?
