@@ -37,7 +37,21 @@ Having separate sets allows to better measure the bias and variance of your algo
 
 2. __Bias/variance__
 
+![Bias and Variance](images/bias_variance.png)
 
+Key values to understand bias and variance are: train and dev set errors.
+
+| Sets                 |     Error     |   Error   |            Error            |           Error           |
+|----------------------|:-------------:|:---------:|:---------------------------:|:-------------------------:|
+| Train set            |       1%      |    15%    |             15%             |            0.1%           |
+| Dev (validation) set |      15%      |    16%    |             30%             |            0.2%           |
+|                      | High Variance | High Bias | High Bias and High Variance | Low Bias and Low Variance |
+
+__Assumption__: Base error (usually human or Bayes error) is quite small (~0%) and training and dev sets are drawn from the same distribution.
+
+How high bias and high variance looks like?
+
+![High Bias and High Variance Model](images/high_variance_bias.png)
 
 3. __Basic Recipe for Machine Learning__
 
