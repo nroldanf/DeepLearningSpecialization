@@ -55,6 +55,13 @@ How high bias and high variance looks like?
 
 3. __Basic Recipe for Machine Learning__
 
+The analysis of train and dev errors allows to assess bias and variance problems in a more systematic way.
+
+Knowing if you have a bias or variance problem can help you choose which approaches are the best to mitigate this problems
+
+![Basic recipe](images/basic_recipe.png)
+
+
 ## Regularizing your Neural Network
 
 
