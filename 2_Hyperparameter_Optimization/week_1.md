@@ -137,10 +137,29 @@ Pretty much always doing a normalization steps does do any harm.
 
 2. __Vanishing / Exploding Gradients__
 
-One of the problem when training very deep neural networks is that sometimes the gradients become very big (explode) or very small (vanish) making training difficult.
+One of the problem when training very deep neural networks is that sometimes the gradients become very big (explode) or very small (vanish) making training difficult. Activation values will increase or decrease exponentially as a function of the depth of the network.
 
 3. __Weight Initialization for Deep Networks__
 
+A partial solution to vanishing/exploding gradient is a more careful choice of the random initialization of the weights.
+
+__With ReLU activation function__
+
+Initialize weights such as the variance equal to 1/n where n is the number of features. This is done multiplying the random weights by the root square of 2/n (sqrt(2/n)).
+
+This helps setting the weights not too far from 0 but also too big, avoiding in some way the vanishing and exploding gradients respectively.
+
+__Other variants__
+
+- __Xavier initialization:__ If using tanh activation funciton use sqrt(1 / n)
+
+This could be seen as an hyperparameter, the variance of the initial weights.
+
 4. __Numerical approximation of gradients__
 
+Some limits theory, limits definition of derivative used as gradient checking technique, to check if the backpropagation implementation is correct.
+
+lim e -> 0 f(theta+e) - f(theta+e) / (2e)
+
 5. __Gradient Checking__
+
