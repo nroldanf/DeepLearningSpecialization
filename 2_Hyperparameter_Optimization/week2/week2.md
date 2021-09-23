@@ -46,8 +46,87 @@ In order to use faster optimization algorithms than mini-batch gradient descent,
 
 4. __Understanding Exponentially Weighted Averages__
 
+
+
 5. __Bias Correction in EWA__
+
+
 
 6. __Gradient Descent with Momentum__
 
-Compute an EWA of your gradients and then use that gradients to update the weights.
+Almost always runs faster than the standard gradient descent algorithm.
+
+__Idea__: Compute an EWA of your gradients and then use that gradients to update the weights.
+
+Using gradient descent you end up with an oscillation over the learning surface/loss function that does not allow you to use a much larger learning rate without ending overshooting and diverging.
+
+Algorithm:
+
+On iteration t:
+- Compute dw, db on current mini-batch (can be the whole batch)
+- Vdw = beta * Vdw + (1 - beta) * dw (moving averages of the derivates)
+- Vdb = beta * Vdb + (1 - beta) * db
+- w = w - alpha * Vdw, b = b - alpha * Vdb
+
+This will:
+- Averages close to 0 on the vertical direction 
+- While on the horizontal direction, all the derivatives are pointing to horizontal direction so the averages will be still pretty big.
+
+Analogy of a ball rolling down where:
+
+- dw and db: acceleration
+- Vdw and Vdb: velocity
+- beta: friction
+
+__Two hyperparameters:__ alpha (learning rate) and beta (controls EWA). Commont value for beta = 0.9 (averaging over last 10 iteration gradients).
+
+7. __RMSprop__
+
+Algorithm:
+
+On iteration t:
+- Compute dw, db on current mini-batch (can be the whole batch)
+- Sdw = beta * Sdw + (1 - beta) * dw**2 (element wise) <- Hoping to be relatively SMALL
+- Sdb = beta * Sdb + (1 - beta) * db**2 <- Hoping to be relatively LARGE
+- w = w - alpha * (dw / sqrt(SdW)), b = b - alpha * (db / sqrt(Sdb))
+
+This speeds up the updates in the horizontal direction. In practice both w and b are high dimensional vectors.
+
+Ensure numerical estability, set up your Sdw initial value so you don't end dividing by zero.
+
+8. __Adam: Adaptive Moment Estimation__
+
+Some optimization algorithms might not generalize quite well for thhe wide range of neural networks that you want to train. Adam is one of those algorithms that have been shown to works well on many problems.
+
+Putting together momentum and RMSprop.
+
+![Algorithm](images/adam_algo.png)
+
+Usually you tune alpha an keep beta1 (momentum beta) and beta2 (RMSprop beta) and epsilon fixed.
+
+- Beta1: 0.9
+- Beta2: 0.999
+- Epsilon: 10**-8
+
+![Adam Hyperparameters](images/adam_hyperparams.png)
+
+9. __Rate Decay__
+
+One of the things that might increase your optimization algorithms is to slowly decrease your learning rate.
+
+In practice is found as __scheduler__.
+
+Learning rate decay with each epoch.
+
+- Epoch 1: alpha 0.1
+- Epoch 2: alpha 0.067
+- Epoch 3: alpha 0.05
+- Epoch 4: alpha 0.04
+
+Hyperparameters:
+
+- decay_rate
+- alpha_zero (initital value of alpha)
+
+10. __The problem of Local Optima__
+
