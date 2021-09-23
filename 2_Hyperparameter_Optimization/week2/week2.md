@@ -4,7 +4,7 @@
 
 Train models with fast optimization algorithms.
 
-1. ___Mini-Batch Gradient Descent__
+### 1. __Mini-Batch Gradient Descent__
 
 ___Batch vs Mini-batch Gradient Descent__
 
@@ -17,7 +17,7 @@ __Mini-batch__: Process mini-batches of your training set once at a time (forwar
 
 When having large training sets, mini-batch gradient descent runs much faster that normal batch gradient descent.
 
-2. __Understanding Mini-batch Gradient Descent__
+### 2. __Understanding Mini-batch Gradient Descent__
 
 Mini-batch gradient descent cost function throught iterations is not a smooth curve but instead a noisier curve. This might be because one of the mini-batches is more easy to learn than the other mini-batches.
 
@@ -38,21 +38,21 @@ Typical mini-batch sizes like power of 2: 64, 128, 256, 512, 1024
 
 Make sure your mini-batch fit in your CPU/GPU RAM memory.    
 
-3. __Exponentially Weighted Averages__
+### 3. __Exponentially Weighted Averages__
 
 In order to use faster optimization algorithms than mini-batch gradient descent, you should understand __Exponentially Weighted Averages__ which is a key component on several optimization algorithms used to train DNN.
 
 ![Exponentially weighted Averages](images/exponentially_weighted_averages.png)
 
-4. __Understanding Exponentially Weighted Averages__
+### 4. __Understanding Exponentially Weighted Averages__
 
 
 
-5. __Bias Correction in EWA__
+### 5. __Bias Correction in EWA__
 
 
 
-6. __Gradient Descent with Momentum__
+### 6. __Gradient Descent with Momentum__
 
 Almost always runs faster than the standard gradient descent algorithm.
 
@@ -80,7 +80,7 @@ Analogy of a ball rolling down where:
 
 __Two hyperparameters:__ alpha (learning rate) and beta (controls EWA). Commont value for beta = 0.9 (averaging over last 10 iteration gradients).
 
-7. __RMSprop__
+### 7. __RMSprop__
 
 Algorithm:
 
@@ -94,7 +94,7 @@ This speeds up the updates in the horizontal direction. In practice both w and b
 
 Ensure numerical estability, set up your Sdw initial value so you don't end dividing by zero.
 
-8. __Adam: Adaptive Moment Estimation__
+### 8. __Adam: Adaptive Moment Estimation__
 
 Some optimization algorithms might not generalize quite well for thhe wide range of neural networks that you want to train. Adam is one of those algorithms that have been shown to works well on many problems.
 
@@ -110,7 +110,7 @@ Usually you tune alpha an keep beta1 (momentum beta) and beta2 (RMSprop beta) an
 
 ![Adam Hyperparameters](images/adam_hyperparams.png)
 
-9. __Rate Decay__
+### 9. __Rate Decay__
 
 One of the things that might increase your optimization algorithms is to slowly decrease your learning rate.
 
@@ -128,5 +128,5 @@ Hyperparameters:
 - decay_rate
 - alpha_zero (initital value of alpha)
 
-10. __The problem of Local Optima__
+### 10. __The problem of Local Optima__
 
