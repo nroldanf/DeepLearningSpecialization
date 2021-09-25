@@ -84,3 +84,12 @@ At test time, you come up with a separate estimate of mean and variance:
 - Estimating using EWA across the mini-batches: with all of the mus calculated at every mini-batch calculate the EWA of mean and variance and the __beta__ and __gamma__ parameters learned and use those values at __test time__.
 
 Keras uses the moving average of both mean and variance of the mini-batches it has been seen during training.
+
+## Multiclass classification
+
+8. __Softmax Regression__
+
+Softmax layer is used in the output layer for multiclass classification (softmax activation function). Outputs a unit vector that sums up the probability that the inputs belongs to each of the classes.
+
+9. __Training a softmax classifier__
+
