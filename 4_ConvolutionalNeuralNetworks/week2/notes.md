@@ -38,14 +38,29 @@ _Residual Block_: Pass the input much deeper into the network and add it. Now it
 ![ResNet](images/resnet.png)
 
 - In reality, training error tends to increase when number of layers increase.
-- When you add __residual blocks__ this allows to keep decreasing the training error while number of layers increase.
+- When you add __residual blocks__/skipping connections this allows to keep decreasing the training error while number of layers increase.
 
-3. __Inception__
+__Why ResNets work?__
+
+![Why](images/why_resnets.png)
+
+- Identify function is easy for residual block to learn (because of the skip connections).
+- But the goal is not to just to hurt performance but also improve performance, so the added hidden units can actually learned something that could be better than the identity function.
+- Generally you used same convolutions in residual networks so you can add skipping connections without worrying about dimensions (adding between equal dimension vectors).
+- When you have different dimensions in the output of a residual block you usually add another matrix to match the dimensions. It could be a matrix which parameters are learned or just a fixed matrix that implements zero padding (e.g for example, when you add a pooling layer that shrinks the dimension).
+
+![Plain vs ResNet](images/plain_v_resnet.png)
+
+3. __Networks in Networks and 1x1 Convolution__
 
 
 
-4. __MobileNet__
+4. __Inception__
 
 
 
-5. __EfficientNet__
+5. __MobileNet__
+
+
+
+6. __EfficientNet__
