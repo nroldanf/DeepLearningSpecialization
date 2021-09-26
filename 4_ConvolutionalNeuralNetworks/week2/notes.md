@@ -53,7 +53,15 @@ __Why ResNets work?__
 
 3. __Networks in Networks and 1x1 Convolution__
 
+_Why does a 1x1 convolution do?_
 
+![Network in network](images/network_in_network.png)
+
+_Use cases_
+
+![1x1 Convs](images/conv_1x1.png)
+
+- If you want to reduce/shrink the number of channels (e.g. from 28x28x192 to 28x28x32 using 32 filters of 1x1)
 
 4. __Inception__
 
