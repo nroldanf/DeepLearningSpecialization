@@ -42,7 +42,7 @@ If you convolve an nxn image with a fxf kernel, you end up with a filter map of 
 
 Problem with this slidding approach is that pixels that are on the edeges of the image are less used for the result, so you are throwing away some information about the image.
 
-Problems of simple convolutionconvolutuon operation:
+Problems of simple convolution operation:
 
 - __Shrinking output__
 - __Throwing away informaton ffrom the edges__
@@ -137,11 +137,28 @@ floor(((n + 2p - f) / s) + 1)
 
 Instead of taking maxima, taking the average. It's not used as much as average pooling. Except in the case of very deep neural networks para comprimir la representación.
 
-## Convolution Neural Network
+## Why Convolutions?
 
+Parameter sharing and sparsity of connections.
 
+Imagine:
 
-__Kernel Size__
-__Strides__
-__Zero padding__
+- Inputs: 32x32x3 = 3072
+- Filters: f_size=5 -> 28x28x6 = 4704
+
+__In a fully connected layer:__ 3072x4704 ~ 14M parameters
+
+__In a conv layer:__ (5x5) * 6 -> 156 parameters
+
+There are 2 reasongs why a conv net has relatively small number of parameters:
+
+_Parameter Sharing_
+
+A feature detector (such a vertical edge detector) that's useful in one part of the image is probably useful in another part of the image. This is true for both, low and high level features.
+
+_Sparsity of connections_
+
+In each layer, each output value depends only on a small number of inputs.
+
+Convolutional neural networks are very good capturing translation invariance (conv layers helps to encode the fact that a shifted image should result in pretty similar features).
 
