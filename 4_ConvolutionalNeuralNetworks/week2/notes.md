@@ -63,9 +63,31 @@ _Use cases_
 
 - If you want to reduce/shrink the number of channels (e.g. from 28x28x192 to 28x28x32 using 32 filters of 1x1)
 
-4. __Inception__
+4. __Inception Module__
 
+_Main Idea_: Try whatever combination of filter sizes at once, apply them, and stack the results together. This allows to implement wider convolutional neural networks.
 
+- Some layers like the max pooling layer might need padding to be able to fit into the same dimensions.
+
+![Inception Main Idea](images/inception_idea.png)
+
+Computational cost is a problem, for that reason a 1x1 convolution is applied to reduce that producing first a bottleneck, without affecting the performance of the resultant network.
+
+![Inception computational problem](images/inception_problem.png)
+
+![Inception 1x1 conv](images/inception_conv_1x1.png)
+
+The usage of 1x1 convolutions reduce the number of operations by 10x in this case.
+
+__Inception Network__
+
+Inception Network is just various inception modules stacked together, with some variations, but in general terms they followed the same pattern.
+
+![Inception Module](images/inception_module.png)
+
+Sides branches in inception network act like a regularization, preventing overfitting via ensuring that the outputs in hidden units are not too bad, taking those and trying to predict the output.
+
+![Inception Module](images/inception_branches.png)
 
 5. __MobileNet__
 
