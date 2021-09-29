@@ -100,6 +100,70 @@ Build and deploy networks that work even in low compute environments, such as a 
 
 _Key Idea_: Depth-wise and separable convolutions.
 
+There are 2 steps for computing this depth-wise convolution:
 
+- Depthwise convolution
+- Pointwise convolution
+
+![Depth Wise vs Normal conv](images/depthwise_v_normal_conv.png)
+
+_Computational cost comparison_
+
+![Normal conv computational cost](images/normal_conv.png)
+
+Depth-wise step works for n number of channels in the input. Same applies for pointwise convolution.
+
+![Depthwise Step computational cost](images/depthwise_step.png)
+
+![Point-wise Step computational cost](images/pointwise_step.png)
+
+This saves up to __31%__  of computational cost in this case. In general:
+
+1/n_c' + 1/f^2
+
+So, in general there is always an improvement of ~10 times in computational cost, allowing to carrying out inference much more efficiently than a normal convolution.
+
+__Mobile Net Architecture__
+
+In the normal MobileNet architecture, the depth-wise and separable convolution block is used 13 times followed by a Pooling layer, Fully Connected layer and softmax activation for classification.
+
+For the V2, a residual connection is added besides an operation called _expansion_ at the beginning. Pointwise convolution operation mantains but now is called projection/bottleneck.
+
+![MobileNet and MobileNetV2](images/mobile_nets.png)
+
+The main idea of the V2 version is that the bottleneck block allows to learn richer functions while keepong the amount of memory low.
+
+![MobileNetV2 bottleneck block](images/bottlenect_block_mobilenet_v2.png)
 
 6. __EfficientNet__
+
+Automatically scale up or down your convolutional neural network for particular devices.
+
+You can choose to tune your:
+
+- Resolution
+- Depth
+- Wide
+
+Look for open-source implementation of efficient net which will help you to choose a good combination.
+
+## Practical Advice for using ConvNets
+
+7. __Using Open-source implementation__
+
+Lots of neural networks are difficult to replicate. Fortunately, a lot of researches publish an open-source implementation.
+
+General workflow involves:
+
+- Choose you architecture of preference (and framework).
+- Look for open-source implementation online (usually on GitHub).
+- Clone the repo and start working with this implementation.
+
+8. __Transfer Learning__
+
+
+
+9. __Data Augmentation__
+
+10. __State of Computer Vision__
+
