@@ -89,7 +89,16 @@ Sides branches in inception network act like a regularization, preventing overfi
 
 ![Inception Module](images/inception_branches.png)
 
+Since the development of the inception module the authors have come up with different versions of the inception algorithm, like InceptionV2, InceptionV3, InceptionV4. There is also an inception network that combines residual blocks/skip connections that sometimes work even better.
+
 5. __MobileNet__
+
+Build and deploy networks that work even in low compute environments, such as a mobile phone.
+
+- Used for mobile and embedded vision applications.
+- Low computational cost at deployment.
+
+_Key Idea_: Depth-wise and separable convolutions.
 
 
 
